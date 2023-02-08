@@ -18,9 +18,7 @@ export interface DialogData {
 @Injectable()
 export class MainViewComponent implements OnInit {
   public name: string="";
-  
 
-  
   public minDate: Date = new Date ("01/01/2023 2:00 AM");
  
   public maxDate: Date = new Date ("01/01/2024 11:00 AM");
@@ -32,42 +30,42 @@ export class MainViewComponent implements OnInit {
 
   openTodoDialog(): void { 
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, { width:'350px',
-      data: {name: this.name},
+      data: {name: this.todoname},
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.name = result;
+      this.todoname = result;
     });
   }
   openResearchDialog(): void { 
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, { width:'350px',
-      data: {name: this.name},
+      data: {name: this.researchname},
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.name = result;
+      this.researchname = result;
     });
   }
   openInprogressDialog(): void { 
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, { width:'350px',
-      data: {name: this.name},
+      data: {name: this.inprogressname},
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.name = result;
+      this.inprogressname = result;
     });
   }
   openDoneDialog(): void { 
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, { width:'350px',
-      data: {name: this.name},
+      data: {name: this.donename},
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.name = result;
+      this.donename = result;
     });
   }
 
