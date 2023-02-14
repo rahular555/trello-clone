@@ -100,25 +100,17 @@
 }
 
 .task {
-    display: flex;
-    padding: 15px 12px;
-    background: #000000;;
-    border-bottom: solid 1px #000000;;
-    border-radius: 4px;
-
-    margin-bottom: 15px;
+    background-color:rgba(69.2749947309494, 65.52259728312492, 65.52259728312492, 1);
+    width:250px;
+    height:80px;
+    border-top-left-radius:8px;
+    border-top-right-radius:8px;
+    border-bottom-left-radius:8px;
+    border-bottom-right-radius:8px;
     &:hover{
         cursor: pointer;
         box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.05),
-        0 3px 14px 2px rgba(0, 0, 0, 0.05);
-
-        #edit:hover {
-            opacity: 1;
-          }
-        #delete:hover {
-            opacity: 1;
-          }
-        
+        0 3px 14px 2px rgba(0, 0, 0, 0.05);        
     }
    
 }
@@ -157,6 +149,33 @@
     color: red; 
     opacity: 0.5;
  
+  }
+  .date-cl
+  {
+    width:100px;
+    height: 15px;
+    position:fixed;
+    margin-left: 125px;
+  }
+  .menu-cl
+  {
+    color:white;position: fixed;margin-top: 20px;margin-left: 180px;
+  }
+  .item-cl
+  {
+    color:white;
+    position:fixed;
+    font-family:Inter;
+    font-size:20px;
+  }
+  .name-cl
+  {
+    color:white;
+    position:fixed;
+    margin-top: 45px;
+    margin-right: 180px;
+    font-family:Inter;
+    font-size:15px;
   }
   
  

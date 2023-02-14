@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {MatMenuModule} from '@angular/material/menu';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainViewComponent,DialogOverviewExampleDialog } from './pages/main-view/main-view.component';
@@ -15,13 +15,14 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
 import {HttpClientModule} from '@angular/common/http';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     MainViewComponent,
     DialogOverviewExampleDialog,
- 
   ],
   imports: [
     BrowserModule,
@@ -37,7 +38,9 @@ import {HttpClientModule} from '@angular/common/http';
     MatDialogModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    HttpClientModule,
+     HttpClientModule,
+     MatDatepickerModule,
+     MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

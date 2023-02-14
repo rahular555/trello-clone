@@ -5,10 +5,8 @@ import { Column } from 'src/app/models/column.model';
 import { Tasks } from 'src/app/models/tasks.model';
 import { Injectable } from '@angular/core';
 import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog'
-
 export interface DialogData {
   name: string;
-  
 }
 @Component({
   selector: 'app-main-view',
@@ -17,55 +15,58 @@ export interface DialogData {
 })
 @Injectable()
 export class MainViewComponent implements OnInit {
-  public name: string="";
+  public name: any="";
 
   public minDate: Date = new Date ("01/01/2023 2:00 AM");
  
   public maxDate: Date = new Date ("01/01/2024 11:00 AM");
 
   public dateValue: Date = new Date ("");
-
+  
+  public result :any="";
   //Add name from Dialog
   constructor(public dialog:MatDialog) { }
 
-  openTodoDialog(): void { 
+  openTodoDialog(i:number): void { 
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, { width:'350px',
-      data: {name: this.todoname},
+      data: {name: this.todoname[i]},
+
+    });
+
+    dialogRef.afterClosed().subscribe(result =>{
+      this.todoname[i] =result;
+    });
+    }
+  
+  openResearchDialog(i:number): void { 
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, { width:'350px',
+      data: {name: this.researchname[i]},
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.todoname = result;
+      this.researchname[i] = result;
     });
   }
-  openResearchDialog(): void { 
+  openInprogressDialog(i:number): void { 
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, { width:'350px',
-      data: {name: this.researchname},
+      data: {name: this.inprogressname[i]},
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.researchname = result;
+      this.inprogressname[i] = result;
     });
+    
   }
-  openInprogressDialog(): void { 
+  openDoneDialog(i:number): void { 
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, { width:'350px',
-      data: {name: this.inprogressname},
+      data: {name: this.donename[i]},
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.inprogressname = result;
-    });
-  }
-  openDoneDialog(): void { 
-    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, { width:'350px',
-      data: {name: this.donename},
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.donename = result;
+      this.donename[i] = result;
     });
   }
 
@@ -211,7 +212,7 @@ ngOnInit() {
   }
 
   //Add Name
-  public todoname : string[] =[];
+public todoname : any[]=[];
 public researchname : string[] =[];
 public inprogressname : string[] =[];
 public donename : string[] =[];
@@ -262,6 +263,7 @@ public donename : string[] =[];
       }
     }
 }
+
 @Component({
   selector: 'dialog-overview-example-dialog',
   templateUrl: 'dialog-overview-example-dialog.html',
